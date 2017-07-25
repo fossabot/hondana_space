@@ -30,7 +30,7 @@ group :development do
   gem "bullet"
   gem "listen"
   gem "rubocop", require: false
-  gem "rubocop-github", github: "tetsuya/rubocop-github", branch: "style-to-layout"
+  gem "rubocop-github"
   gem "spring"
   gem "spring-commands-rspec"
   gem "spring-commands-rubocop"
