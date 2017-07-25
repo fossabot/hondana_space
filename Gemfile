@@ -10,6 +10,7 @@ gem "rails"
 gem "dotenv-rails"
 gem "mysql2"
 gem "puma"
+gem "sorcery"
 
 # front-end
 gem "normalize-rails"

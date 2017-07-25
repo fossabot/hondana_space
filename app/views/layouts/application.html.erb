@@ -9,6 +9,12 @@
   </head>
 
   <body>
+    <% if current_user %>
+      <%= current_user.name %>
+      <%= link_to "Logout", :logout, method: :post %>
+    <% else %>
+      <%= link_to 'Login with Google', auth_at_provider_path(provider: :google) %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
