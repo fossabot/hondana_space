@@ -1,6 +1,7 @@
 class OrganisationsController < ApplicationController
+  before_action :set_organisation, only: [:show]
+
   def show
-    @organisation = Organisation.find_by!(subdomain: request.subdomain)
   end
 
   def create

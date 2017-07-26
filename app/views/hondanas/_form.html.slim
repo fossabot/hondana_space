@@ -1,0 +1,12 @@
+= form_for @hondana do |f|
+  - if @hondana.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@hondana.errors.count, "error")} prohibited this hondana from being saved:"
+      ul
+        - @hondana.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .actions = f.submit

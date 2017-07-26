@@ -1,0 +1,21 @@
+h1 Listing hondanas
+
+table
+  thead
+    tr
+      th Name
+      th
+      th
+      th
+
+  tbody
+    - @hondanas.each do |hondana|
+      tr
+        td = hondana.name
+        td = link_to 'Show', hondana
+        td = link_to 'Edit', edit_hondana_path(hondana)
+        td = link_to 'Destroy', hondana, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Hondana', new_hondana_path
