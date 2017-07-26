@@ -3,8 +3,7 @@
 # Table name: organisations
 #
 #  id         :integer          not null, primary key
-#  subdomain  :string(255)
-#  name       :string(255)
+#  subdomain  :string(255)      not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -16,4 +15,52 @@
 class Organisation < ApplicationRecord
   has_many :hondanas
   has_one :user
+
+  validates :subdomain,
+              presence: true,
+              uniqueness: true,
+              exclusion: { in: %w(
+                about
+                abuse
+                ad
+                admin
+                ads
+                adword
+                affiliate
+                alpha
+                api
+                app
+                auth
+                authenticate
+                beta
+                billing
+                biz
+                blog
+                contact
+                dashboard
+                demo
+                dev
+                doc
+                docs
+                document
+                feed
+                help
+                invoice
+                job
+                join
+                legal
+                login
+                logout
+                register
+                release
+                search
+                signin
+                signup
+                sitemap
+                staging
+                support
+                survey
+                test
+                www
+              ) }
 end

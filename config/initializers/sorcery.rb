@@ -4,7 +4,7 @@ Rails.application.config.sorcery.configure do |config|
   config.external_providers = [:google]
   config.google.key = ENV["GOOGLE_KEY"]
   config.google.secret = ENV["GOOGLE_SECRET"]
-  config.google.callback_url = "http://localhost:3000/oauth/callback?provider=google"
+  config.google.callback_url = ENV["GOOGLE_CALLBACK_URL"]
   config.google.user_info_mapping = {
     name: "name"
   }

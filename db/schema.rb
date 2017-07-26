@@ -51,8 +51,7 @@ ActiveRecord::Schema.define(version: 20170620143542) do
   end
 
   create_table "organisations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.string "subdomain"
-    t.string "name"
+    t.string "subdomain", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["subdomain"], name: "index_organisations_on_subdomain", unique: true

@@ -1,2 +1,14 @@
-h1 Home#index
-p Find me in app/views/home/index.html.slim
+h1 New organisation
+
+= form_for @organisation do |f|
+  - if @organisation.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@organisation.errors.count, "error")} prohibited this organisation from being saved:"
+      ul
+        - @organisation.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :subdomain
+    = f.text_field :subdomain
+  .actions = f.submit
