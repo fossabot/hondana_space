@@ -1,9 +1,8 @@
 class HondanasController < ApplicationController
-  before_action :set_organisation
   before_action :set_hondana, only: [:show, :edit, :update, :destroy]
 
   def index
-    @hondanas = Hondana.all.where(organisation_id: @organisation.id)
+    @hondanas = Hondana.all.where(organisation_id: organisation.id)
   end
 
   def show
@@ -18,7 +17,7 @@ class HondanasController < ApplicationController
 
   def create
     @hondana = Hondana.new(hondana_params)
-    @hondana.organisation = @organisation
+    @hondana.organisation = organisation
 
     if @hondana.save
       redirect_to @hondana
@@ -42,7 +41,7 @@ class HondanasController < ApplicationController
 
   private
     def set_hondana
-      @hondana = Hondana.find_by!(id: params[:id], organisation_id: @organisation.id)
+      @hondana = Hondana.find_by!(id: params[:id], organisation_id: organisation.id)
     end
 
     def hondana_params

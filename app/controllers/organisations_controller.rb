@@ -1,7 +1,6 @@
 class OrganisationsController < ApplicationController
-  before_action :set_organisation, only: [:show]
-
   def show
+    @organisation = organisation
   end
 
   def create
