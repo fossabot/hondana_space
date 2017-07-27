@@ -33,13 +33,15 @@ ActiveRecord::Schema.define(version: 20170620143542) do
     t.index ["isbn"], name: "index_books_on_isbn", unique: true
   end
 
-  create_table "hondana_books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+  create_table "collections", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.bigint "organisation_id", null: false
+    t.bigint "book_id", null: false
     t.bigint "hondana_id"
-    t.bigint "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_hondana_books_on_book_id"
-    t.index ["hondana_id"], name: "index_hondana_books_on_hondana_id"
+    t.index ["book_id"], name: "index_collections_on_book_id"
+    t.index ["hondana_id"], name: "index_collections_on_hondana_id"
+    t.index ["organisation_id"], name: "index_collections_on_organisation_id"
   end
 
   create_table "hondanas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
@@ -67,7 +69,8 @@ ActiveRecord::Schema.define(version: 20170620143542) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "hondana_books", "books"
-  add_foreign_key "hondana_books", "hondanas"
+  add_foreign_key "collections", "books"
+  add_foreign_key "collections", "hondanas"
+  add_foreign_key "collections", "organisations"
   add_foreign_key "hondanas", "organisations"
 end

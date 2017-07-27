@@ -19,6 +19,6 @@
 
 class Hondana < ApplicationRecord
   belongs_to :organisation
-  has_many :hondana_books
-  has_many :books, through: :hondana_books
+  has_many :collections
+  has_many :books, through: :collections
 end

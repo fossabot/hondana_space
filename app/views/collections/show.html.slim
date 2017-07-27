@@ -1,0 +1,9 @@
+p#notice = notice
+
+- @collections.each do |collection|
+  p
+    strong Book:
+    = collection.book.title
+  p
+    strong Hondana:
+    = collection.hondana.try(:name)

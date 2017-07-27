@@ -10,6 +10,7 @@ gem "rails"
 gem "dotenv-rails"
 gem "mysql2"
 gem "puma"
+gem "rapa"
 gem "sorcery"
 
 # front-end
