@@ -8,6 +8,7 @@ end
 gem "rails"
 
 gem "dotenv-rails"
+gem "foreman"
 gem "mysql2"
 gem "puma"
 gem "rapa"
@@ -18,6 +19,7 @@ gem "normalize-rails"
 gem "sass-rails"
 gem "slim-rails"
 gem "uglifier"
+gem "webpacker", github: "rails/webpacker"
 
 group :development, :test do
   gem "pry-byebug"

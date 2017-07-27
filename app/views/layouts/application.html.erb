@@ -16,5 +16,7 @@
       <%= link_to 'Login with Google', auth_at_provider_path(provider: :google) %>
     <% end %>
     <%= yield %>
+    <%= javascript_pack_tag 'application' %>
+    <%= javascript_pack_tag 'hello_vue' %>
   </body>
 </html>
