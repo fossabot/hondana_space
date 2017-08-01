@@ -45,6 +45,10 @@ module.exports = {
   ],
 
   resolve: {
+    // see: https://github.com/vuejs-templates/webpack/issues/215#issuecomment-238095102
+    alias: {
+      vue: 'vue/dist/vue.js'
+    },
     extensions: settings.extensions,
     modules: resolvedModules
   },

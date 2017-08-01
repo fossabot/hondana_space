@@ -15,8 +15,12 @@ gem "rapa"
 gem "sorcery"
 
 # front-end
+gem "font-awesome-rails"
+gem "foundation-rails", "~> 6.4"
+gem "jbuilder"
 gem "normalize-rails"
 gem "sass-rails"
+gem "simple_form"
 gem "slim-rails"
 gem "uglifier"
 gem "webpacker", github: "rails/webpacker"
