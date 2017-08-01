@@ -1,23 +1,11 @@
-h1 Listing organisations
-
-table
-  thead
-    tr
-      th Subdomain
-      th Name
-      th
-      th
-      th
-
-  tbody
-    - @organisations.each do |organisation|
-      tr
-        td = organisation.subdomain
-        td = organisation.name
-        td = link_to 'Show', organisation
-        td = link_to 'Edit', edit_organisation_path(organisation)
-        td = link_to 'Destroy', organisation, data: { confirm: 'Are you sure?' }, method: :delete
-
-br
-
-= link_to 'New Organisation', new_organisation_path
+.row.column.text-center
+  h2 Recently Added
+  hr
+.row.small-up-2.medium-up-3.large-up-6
+  - @books.each do |book|
+    .column
+      img.thumbnail src="https://placehold.it/300x400"
+      h5 = book.title
+      p = book.author
+      p = book.manufacturer
+      = link_to 'Show Details', collection_path(book.isbn), class: 'button small expanded hollow'

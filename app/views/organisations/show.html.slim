@@ -1,5 +1,3 @@
-p#notice = notice
-
-p
-  strong Subdomain:
-  = @organisation.subdomain
+h2 = @organisation.subdomain
+- @users.each do |user|
+  = user.name

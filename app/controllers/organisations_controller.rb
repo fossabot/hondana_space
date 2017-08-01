@@ -1,6 +1,11 @@
 class OrganisationsController < ApplicationController
+  def index
+    @books = organisation.books.order(created_at: :desc)
+  end
+
   def show
     @organisation = organisation
+    @users = User.where(organisation_id: organisation.id)
   end
 
   def create
@@ -12,7 +17,6 @@ class OrganisationsController < ApplicationController
       render "home/index"
     end
   end
-
 
   private
     def organisation_params

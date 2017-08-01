@@ -1,0 +1,58 @@
+doctype html
+html lang="en"
+  head
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    title = content_for?(:title) ? yield(:title) : "hondana.space"
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  body
+    / - if current_user
+    /   = current_user.name
+    /   = link_to "Logout", :logout, method: :post
+    / - else
+    /   = link_to 'Login with Google', auth_at_provider_path(provider: :google)
+    / 
+    .top-bar
+      .top-bar-left
+        ul.menu
+          li.menu-text hondana.space
+      .top-bar-right
+        ul.menu
+          li
+            a href="#" Three
+          li
+            a href="#" Four
+          li
+            a href="#" Five
+          li
+            a href="#" Six
+    = yield
+    .callout.large.secondary
+      .row
+        .large-4.columns
+          h5 Vivamus Hendrerit Arcu Sed Erat Molestie
+          p Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed molestie augue sit.
+        .large-3.large-offset-2.columns
+          ul.menu.vertical
+            li
+              a href="#" One
+            li
+              a href="#" Two
+            li
+              a href="#" Three
+            li
+              a href="#" Four
+        .large-3.columns
+          ul.menu.vertical
+            li
+              a href="#" One
+            li
+              a href="#" Two
+            li
+              a href="#" Three
+            li
+              a href="#" Four
+  </body>
+</html>

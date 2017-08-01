@@ -1,14 +1,8 @@
-h1 New organisation
-
-= form_for @organisation do |f|
-  - if @organisation.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@organisation.errors.count, "error")} prohibited this organisation from being saved:"
-      ul
-        - @organisation.errors.full_messages.each do |message|
-          li = message
-
-  .field
-    = f.label :subdomain
-    = f.text_field :subdomain
-  .actions = f.submit
+= simple_form_for @organisation, url: '/organisations', method: :post do |f|
+  .row
+    .input-group
+      span.input-group-label https://
+      = f.input :subdomain, label: false, wrapper: false, input_html: { class: "input-group-field" }
+      span.input-group-label .hondana.space
+      .input-group-button
+        = f.button :submit, "Create Organisation", class: "button"
