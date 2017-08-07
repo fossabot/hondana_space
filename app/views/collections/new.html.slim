@@ -1,19 +1,8 @@
-h1 New collection
-
-= form_for @collection do |f|
-  - if @collection.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@collection.errors.count, "error")} prohibited this collection from being saved:"
-      ul
-        - @collection.errors.full_messages.each do |message|
-          li = message
-
-  .field
-    = f.label :isbn
-    = f.text_field :isbn
-  .field
-    = f.label :hondana
-    = f.collection_select :hondana, @hondanas, :id, :name, :prompt => true
-  .actions = f.submit
-
-= link_to 'Back', collections_path
+h3 Add collection
+= content_tag :div, id: "book-form", data: { book: @book.to_json(except: [:created_at, :updated_at]), hondanas: @hondanas.to_json(except: [:organisation_id, :created_at, :updated_at]) } do
+  .row
+    .input-group
+      / see: https://stackoverflow.com/a/31899940
+      input type="tel" placeholder="ISBN 13" autofocus=true v-model="book.isbn" v-on:keyup.enter="saveCollection"
+      button.button v-on:click="saveCollection" Add
+= javascript_pack_tag "collection_vue"
