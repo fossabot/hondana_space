@@ -3,7 +3,7 @@
 # Table name: books
 #
 #  id           :integer          not null, primary key
-#  isbn         :string(255)
+#  isbn         :string(255)      not null
 #  title        :string(255)
 #  author       :string(255)
 #  manufacturer :string(255)
