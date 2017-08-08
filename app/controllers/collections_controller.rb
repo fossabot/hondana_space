@@ -1,4 +1,9 @@
 class CollectionsController < ApplicationController
+  def index
+    hondanas = organisation.hondanas
+    @collections = Collection.includes(:book).where(hondana_id: hondanas)
+  end
+
   def new
     @book = Book.new
   end

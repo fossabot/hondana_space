@@ -1,9 +1,4 @@
 class OrganisationsController < ApplicationController
-  def index
-    hondanas = organisation.hondanas
-    @collections = Collection.includes(:book).where(hondana_id: hondanas)
-  end
-
   def show
     @organisation = organisation
     @users = User.where(organisation_id: organisation.id)

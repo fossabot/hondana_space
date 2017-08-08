@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   require Rails.root.join("lib", "subdomain.rb")
   constraints Subdomain do
-    get    "/"                    => "organisations#index", as: :organisations
+    get    "/"                    => "collections#index"
     get    "/organisations/"      => "organisations#show", as: :organisation
     get    "/hondanas"            => "hondanas#index", as: :hondanas
     post   "/hondanas"            => "hondanas#create"
@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     get    "/hondanas/:id"        => "hondanas#show", as: :hondana
     patch  "/hondanas/:id"        => "hondanas#update"
     delete "/hondanas/:id"        => "hondanas#destroy"
+    get    "/collections"         => "collections#index", as: :collections
     post   "/collections"         => "collections#create"
     get    "/collections/new"     => "collections#new", as: :new_collection
     get    "/books/:isbn"         => "books#show", as: :book
