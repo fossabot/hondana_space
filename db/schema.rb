@@ -34,14 +34,12 @@ ActiveRecord::Schema.define(version: 20170620143542) do
   end
 
   create_table "collections", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.bigint "organisation_id", null: false
+    t.bigint "hondana_id", null: false
     t.bigint "book_id", null: false
-    t.bigint "hondana_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_collections_on_book_id"
     t.index ["hondana_id"], name: "index_collections_on_hondana_id"
-    t.index ["organisation_id"], name: "index_collections_on_organisation_id"
   end
 
   create_table "hondanas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
@@ -71,6 +69,5 @@ ActiveRecord::Schema.define(version: 20170620143542) do
 
   add_foreign_key "collections", "books"
   add_foreign_key "collections", "hondanas"
-  add_foreign_key "collections", "organisations"
   add_foreign_key "hondanas", "organisations"
 end

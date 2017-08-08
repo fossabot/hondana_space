@@ -15,8 +15,6 @@
 class Organisation < ApplicationRecord
   has_many :hondanas
   has_many :users
-  has_many :collections
-  has_many :books, through: :collections
 
   validates :subdomain,
               presence: true,

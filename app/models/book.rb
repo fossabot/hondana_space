@@ -19,7 +19,6 @@
 
 class Book < ApplicationRecord
   has_many :collections
-  has_many :organisations, through: :collections
   has_many :hondanas, through: :collections
 
   def self.find_or_create_by_isbn(isbn)

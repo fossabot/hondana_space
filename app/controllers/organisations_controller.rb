@@ -1,6 +1,7 @@
 class OrganisationsController < ApplicationController
   def index
-    @books = organisation.books.order(created_at: :desc)
+    hondanas = organisation.hondanas
+    @collections = Collection.includes(:book).where(hondana_id: hondanas)
   end
 
   def show
@@ -10,6 +11,7 @@ class OrganisationsController < ApplicationController
 
   def create
     @organisation = Organisation.new(organisation_params)
+    @organisation.hondanas.build(name: "Uncategorized")
 
     if @organisation.save
       redirect_to "/oauth/google?state=#{organisation_params[:subdomain]}"

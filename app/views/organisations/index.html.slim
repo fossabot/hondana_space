@@ -2,10 +2,10 @@
   h2 Recently Added
   hr
 .row.small-up-2.medium-up-3.large-up-6
-  - @books.each do |book|
+  - @collections.each do |collection|
     .column
       img.thumbnail src="https://placehold.it/300x400"
-      h5 = book.title
-      p = book.author
-      p = book.manufacturer
-      = link_to 'Show Details', collection_path(book.isbn), class: 'button small expanded hollow'
+      h5 = collection.book.title
+      p = collection.book.author
+      p = collection.book.manufacturer
+      = link_to 'Show Details', book_path(collection.book.isbn), class: 'button small expanded hollow'
