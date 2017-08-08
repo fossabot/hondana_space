@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     delete "/hondanas/:id"        => "hondanas#destroy"
     post   "/collections"         => "collections#create"
     get    "/collections/new"     => "collections#new", as: :new_collection
-    get    "/collections/:id"     => "collections#show", as: :collection
+    get    "/books/:isbn"         => "books#show", as: :book
   end
   root   "home#index"
   post   "/organisations"         => "organisations#create"
