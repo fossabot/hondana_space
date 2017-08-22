@@ -25,8 +25,10 @@ ActiveRecord::Schema.define(version: 20170620143542) do
     t.string "isbn", null: false
     t.string "title"
     t.string "author"
-    t.string "manufacturer"
+    t.string "publisher"
+    t.string "category"
     t.string "amazon_url"
+    t.string "kindle_url"
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

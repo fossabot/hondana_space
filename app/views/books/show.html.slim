@@ -1,14 +1,14 @@
 .row.medium-9
   .medium-5.columns
-    img.thumbnail src="https://placehold.it/300x400"
+    img.thumbnail src="#{@book.image_url}"
   .medium-7.columns
     h4 = @book.title
     label
       | Author:
       = @book.author
     label
-      | Manufacturer:
-      = @book.manufacturer
+      | publisher:
+      = @book.publisher
     - if @hondana
       label
         | Hondana:
@@ -17,5 +17,5 @@
     - else
       a.button.large.expanded href="#" Ask Boss
     .small.secondary.expanded.button-group
-      a.button Amazon
-      a.button Kindle
+      a.button href="#{@book.amazon_url}" target="_blank" Amazon
+      a.button href="#{@book.kindle_url}" target="_blank" Kindle

@@ -1,1 +1,1 @@
-json.extract! book, :isbn, :title, :author, :manufacturer, :amazon_url, :image_url
+json.extract! book, :isbn, :title, :author, :publisher, :image_url

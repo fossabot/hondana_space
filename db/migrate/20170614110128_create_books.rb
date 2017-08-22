@@ -4,8 +4,10 @@ class CreateBooks < ActiveRecord::Migration[5.1]
       t.string :isbn, null: false
       t.string :title
       t.string :author
-      t.string :manufacturer
+      t.string :publisher
+      t.string :category
       t.string :amazon_url
+      t.string :kindle_url
       t.string :image_url
 
       t.timestamps
