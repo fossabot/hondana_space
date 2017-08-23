@@ -8,7 +8,7 @@ class CollectionsController < ApplicationController
   end
 
   def create
-    @book = Book.find_or_create_by_isbn(book_params[:isbn].gsub("-", ""))
+    @book = Book.find_or_create_by_isbn(book_params[:isbn])
     @collection = Collection.find_or_initialize_by(organisation_id: organisation.id, book_id: @book.id)
 
     if @collection.save

@@ -9,6 +9,7 @@ gem "rails"
 
 gem "dotenv-rails"
 gem "foreman"
+gem "isbn"
 gem "mysql2"
 gem "puma"
 gem "rapa", github: "tetsuya/rapa", branch: "feature/error-handling"

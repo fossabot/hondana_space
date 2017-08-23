@@ -105,6 +105,7 @@ GEM
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     i18n (0.8.6)
+    isbn (2.0.11)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -280,6 +281,7 @@ DEPENDENCIES
   font-awesome-rails
   foreman
   foundation-rails (~> 6.4)
+  isbn
   jbuilder
   listen
   mysql2

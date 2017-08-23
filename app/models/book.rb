@@ -24,7 +24,7 @@ class Book < ApplicationRecord
   has_many :organisations, through: :collections
 
   def self.find_or_create_by_isbn(isbn)
-    book = self.find_or_initialize_by(isbn: isbn)
+    book = self.find_or_initialize_by(isbn: ISBN.thirteen(isbn))
     if book.new_record?
       api = AmazonProductAPI.new
       responses = api.search(isbn)
@@ -33,6 +33,7 @@ class Book < ApplicationRecord
       end
       responses.each do |response|
         unless response.ebook?
+          book.isbn = ISBN.thirteen(response.isbn)
           book.title = response.title
           book.author = response.authors.join(", ")
           book.publisher = response.publisher
@@ -43,7 +44,6 @@ class Book < ApplicationRecord
           book.kindle_url = details_page(response.url_details_page)
         end
       end
-      book.isbn = isbn
       book.save
     end
     book

@@ -3,6 +3,6 @@ h3 Add collection
   .row
     .input-group
       / see: https://stackoverflow.com/a/31899940
-      input type="tel" placeholder="ISBN 13" autofocus=true v-model="book.isbn" v-on:keyup.enter="saveCollection"
+      input type="tel" placeholder="ISBN" autofocus=true v-model="book.isbn" v-on:keyup.enter="saveCollection"
       button.button v-on:click="saveCollection" Add
 = javascript_pack_tag "collection_vue"
