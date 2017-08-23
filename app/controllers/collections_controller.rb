@@ -16,6 +16,9 @@ class CollectionsController < ApplicationController
     else
       render json: @collection.errors.full_messages.first, status: :unprocessable_entity
     end
+  rescue => e
+    logger.error(e)
+    render json: "We had trouble registering your book. Please try again later.", status: :unprocessable_entity
   end
 
 

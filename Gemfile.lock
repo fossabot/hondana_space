@@ -7,6 +7,16 @@ GIT
       multi_json (~> 1.2)
       railties (>= 4.2)
 
+GIT
+  remote: https://github.com/tetsuya/rapa.git
+  revision: 6ccd542fb6d3bfe70479baba1bdaf4da84973326
+  branch: feature/error-handling
+  specs:
+    rapa (0.5.4)
+      faraday
+      faraday_middleware
+      multi_xml
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -81,7 +91,7 @@ GEM
     execjs (2.7.0)
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
-    faraday_middleware (0.11.0.1)
+    faraday_middleware (0.12.2)
       faraday (>= 0.7.4, < 1.0)
     ffi (1.9.18)
     font-awesome-rails (4.7.0.2)
@@ -171,10 +181,6 @@ GEM
     rainbow (2.2.2)
       rake
     rake (12.0.0)
-    rapa (0.5.4)
-      faraday
-      faraday_middleware
-      multi_xml
     rb-fsevent (0.10.2)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
@@ -282,7 +288,7 @@ DEPENDENCIES
   pry-rails
   puma
   rails
-  rapa
+  rapa!
   rspec-rails
   rubocop
   rubocop-github

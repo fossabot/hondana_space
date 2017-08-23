@@ -11,7 +11,7 @@ gem "dotenv-rails"
 gem "foreman"
 gem "mysql2"
 gem "puma"
-gem "rapa"
+gem "rapa", github: "tetsuya/rapa", branch: "feature/error-handling"
 gem "sorcery"
 
 # front-end

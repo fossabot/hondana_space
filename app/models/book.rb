@@ -27,7 +27,11 @@ class Book < ApplicationRecord
     book = self.find_or_initialize_by(isbn: isbn)
     if book.new_record?
       api = AmazonProductAPI.new
-      api.search(isbn).each do |response|
+      responses = api.search(isbn)
+      if responses.has_error?
+        raise responses.error.message
+      end
+      responses.each do |response|
         unless response.ebook?
           book.title = response.title
           book.author = response.authors.join(", ")
