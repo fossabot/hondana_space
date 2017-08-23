@@ -21,7 +21,7 @@
 
 class Book < ApplicationRecord
   has_many :collections
-  has_many :hondanas, through: :collections
+  has_many :organisations, through: :collections
 
   def self.find_or_create_by_isbn(isbn)
     book = self.find_or_initialize_by(isbn: isbn)
@@ -43,6 +43,10 @@ class Book < ApplicationRecord
       book.save
     end
     book
+  end
+
+  def property_of(organisation)
+    self.organisations.where(id: organisation.id).exists?
   end
 
   private

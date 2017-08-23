@@ -3,13 +3,6 @@ Rails.application.routes.draw do
   constraints Subdomain do
     get    "/"                    => "collections#index"
     get    "/organisations/"      => "organisations#show", as: :organisation
-    get    "/hondanas"            => "hondanas#index", as: :hondanas
-    post   "/hondanas"            => "hondanas#create"
-    get    "/hondanas/new"        => "hondanas#new", as: :new_hondana
-    get    "/hondanas/:id/edit"   => "hondanas#edit", as: :edit_hondana
-    get    "/hondanas/:id"        => "hondanas#show", as: :hondana
-    patch  "/hondanas/:id"        => "hondanas#update"
-    delete "/hondanas/:id"        => "hondanas#destroy"
     get    "/collections"         => "collections#index", as: :collections
     post   "/collections"         => "collections#create"
     get    "/collections/new"     => "collections#new", as: :new_collection

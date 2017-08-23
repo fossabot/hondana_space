@@ -6,7 +6,6 @@ class OrganisationsController < ApplicationController
 
   def create
     @organisation = Organisation.new(organisation_params)
-    @organisation.hondanas.build(name: "Uncategorized")
 
     if @organisation.save
       redirect_to "/oauth/google?state=#{organisation_params[:subdomain]}"

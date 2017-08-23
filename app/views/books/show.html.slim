@@ -9,10 +9,7 @@
     label
       | publisher:
       = @book.publisher
-    - if @hondana
-      label
-        | Hondana:
-        = @hondana.name
+    - if @property
       a.button.large.expanded href="#" Borrow Now
     - else
       a.button.large.expanded href="#" Ask Boss

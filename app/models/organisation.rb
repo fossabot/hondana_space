@@ -13,7 +13,8 @@
 #
 
 class Organisation < ApplicationRecord
-  has_many :hondanas
+  has_many :collections
+  has_many :books, through: :collections
   has_many :users
 
   validates :subdomain,

@@ -1,7 +1,6 @@
 class CollectionsController < ApplicationController
   def index
-    hondanas = organisation.hondanas
-    @collections = Collection.includes(:book).where(hondana_id: hondanas)
+    @collections = Collection.includes(:book).where(organisation_id: organisation.id)
   end
 
   def new
@@ -10,8 +9,7 @@ class CollectionsController < ApplicationController
 
   def create
     @book = Book.find_or_create_by_isbn(book_params[:isbn].gsub("-", ""))
-    hondana = Hondana.where(organisation_id: organisation.id).first
-    @collection = Collection.find_or_initialize_by(hondana_id: hondana.id, book_id: @book.id)
+    @collection = Collection.find_or_initialize_by(organisation_id: organisation.id, book_id: @book.id)
 
     if @collection.save
       render "books/show", status: :created, location: @book

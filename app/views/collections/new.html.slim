@@ -1,5 +1,5 @@
 h3 Add collection
-= content_tag :div, id: "book-form", data: { book: @book.to_json(except: [:created_at, :updated_at]), hondanas: @hondanas.to_json(except: [:organisation_id, :created_at, :updated_at]) } do
+= content_tag :div, id: "book-form", data: { book: @book.to_json(except: [:created_at, :updated_at]) } do
   .row
     .input-group
       / see: https://stackoverflow.com/a/31899940
