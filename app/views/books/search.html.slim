@@ -1,0 +1,8 @@
+h3 Search Books
+= content_tag :div, id: "book-search-form", data: { book: @book.to_json(except: [:created_at, :updated_at]) } do
+  .row
+    .input-group
+      / see: https://stackoverflow.com/a/31899940
+      input type="tel" placeholder="ISBN" autofocus=true v-model="q"
+      button.button v-on:click="searchBooks"
+/ = javascript_pack_tag "collection_vue"

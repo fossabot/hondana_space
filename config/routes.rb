@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get    "/collections"         => "collections#index", as: :collections
     post   "/collections"         => "collections#create"
     get    "/collections/new"     => "collections#new", as: :new_collection
+    get    "/books/search"        => "books#search"
     get    "/books/:isbn"         => "books#show", as: :book
   end
   root   "home#index"
