@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title hondana.space
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    = csrf_meta_tags
+    = stylesheet_link_tag "application", media: "all"
+  body
+  .navbar.navbar-dark.bg-dark
+    .container.d-flex.justify-content-between
+      a.navbar-brand href="#" hondana.space
+  = yield
+  = javascript_include_tag "application"

@@ -12,7 +12,8 @@ gem "mysql2"
 gem "puma"
 
 # front-end
-gem "normalize-rails"
+gem "bootstrap", "~> 4.0.0.beta"
+gem "jquery-rails"
 gem "sass-rails"
 gem "slim-rails"
 gem "uglifier"
