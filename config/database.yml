@@ -3,14 +3,13 @@ development: &default
   database: hondana_space_development
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV['DATABASE_USERNAME'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
-  socket: <%= ENV['DATABASE_SOCKET'] %>
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+  socket: <%= ENV["DATABASE_SOCKET"] %>
 
 test:
   <<: *default
   database: hondana_space_test
 
 production:
-  <<: *default
-  database: hondana_space_production
+  url: <%= ENV["DATABASE_URL"] %>
