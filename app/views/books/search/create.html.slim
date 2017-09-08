@@ -1,0 +1,14 @@
+.jumbotron
+  .container
+    .row
+      .col-2
+      .col-8
+        - @books.each do |book|
+          .row
+            .col-2
+              img.book-thumbnail src="#{book.image_url}"
+            .col-8
+              h6 = book.title
+              p = book.author
+              a.btn.btn-secondary href="/books/#{book.isbn}" View details &raquo;
+          hr
