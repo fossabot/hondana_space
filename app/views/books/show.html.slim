@@ -1,0 +1,28 @@
+p#notice = notice
+
+.jumbotron
+  .container
+    .row
+      .col-2
+      .col-2
+        img.book-thumbnail src="#{@book.image_url}"
+      .col-6
+        h3 = @book.title
+        p
+          strong Author:
+          = @book.author
+        p
+          strong Publisher:
+          = @book.publisher
+        p
+          strong Category:
+          = @book.category
+        .row
+          .col-6
+            a.btn.btn-warning.btn-lg.btn-block href="#{@book.amazon_url}" target="_blank"
+              = fa_icon "amazon"
+              | Amazon
+          .col-6
+            a.btn.btn-secondary.btn-lg.btn-block href="#{@book.kindle_url}" target="_blank"
+              = fa_icon "amazon"
+              | Kindle

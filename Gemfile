@@ -8,11 +8,15 @@ end
 gem "rails"
 
 gem "dotenv-rails"
+gem "isbn"
 gem "mysql2"
 gem "puma"
+gem "rapa"
 
 # front-end
+gem 'simple_form'
 gem "bootstrap", "~> 4.0.0.beta"
+gem "font-awesome-rails"
 gem "jquery-rails"
 gem "sass-rails"
 gem "slim-rails"

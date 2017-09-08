@@ -1,0 +1,15 @@
+.jumbotron
+  .container
+    .row
+      .col-4
+        a.btn.btn-outline-dark.btn-lg.btn-block
+          = fa_icon "search 5x"
+          p Search
+      .col-4
+        = link_to new_book_path, class: "btn btn-outline-dark btn-lg btn-block"
+          = fa_icon "book 5x"
+          p Add
+      .col-4
+        a.btn.btn-outline-dark.btn-lg.btn-block
+          = fa_icon "archive 5x"
+          p Bulk

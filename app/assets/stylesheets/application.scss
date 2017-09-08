@@ -1,1 +1,18 @@
 @import "bootstrap";
+@import "font-awesome";
+
+.jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    margin-bottom: 0;
+    background-color: #fff;
+}
+a {
+  i.fa {
+    padding-right: 5px;
+  }
+}
+.book-thumbnail {
+  max-width: 100%;
+  height: auto;
+}
