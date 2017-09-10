@@ -7,6 +7,11 @@ p#notice = notice
       .col-2
         img.book-thumbnail src="#{@book.image_url}"
       .col-6
+        .row
+          .col-11
+          .col-1
+            a href="/books/#{@book.isbn}" data-method="patch"
+              = fa_icon "refresh"
         h3 = @book.title
         p
           strong Author:

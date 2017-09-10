@@ -21,34 +21,42 @@
 
 class Book < ApplicationRecord
   def self.find_or_create_by_isbn(isbn)
-    isbn13 = ISBN.thirteen(isbn)
-    book = self.find_or_initialize_by(isbn: isbn13)
+    book = self.find_or_initialize_by(isbn: ISBN.thirteen(isbn))
     if book.new_record?
-      api = AmazonProductAPI.new
-      responses = api.search(isbn13)
-      if responses.has_error?
-        raise responses.error.message
-      end
-      responses.each do |response|
-        unless response.ebook?
-          book.isbn = ISBN.thirteen(response.isbn)
-          book.title = response.title
-          book.author = response.authors.join(", ")
-          book.publisher = response.publisher
-          book.category = category_name(response)
-          book.amazon_url = details_page(response.url_details_page)
-          book.image_url = response.image_large.url
-        else
-          book.kindle_url = details_page(response.url_details_page)
-        end
-      end
-      book.save
+      book.retrieve_from_amazon!
     end
     book
   end
 
+  def self.update_by_isbn(isbn)
+    book = self.find_by(isbn: ISBN.thirteen(isbn))
+    book.retrieve_from_amazon!
+  end
+
+  def retrieve_from_amazon!
+    api = AmazonProductAPI.new
+    responses = api.search(self.isbn)
+    if responses.has_error?
+      raise responses.error.message
+    end
+    responses.each do |response|
+      unless response.ebook?
+        self.isbn = ISBN.thirteen(response.isbn)
+        self.title = response.title
+        self.author = response.authors.join(", ")
+        self.publisher = response.publisher
+        self.category = category_name(response)
+        self.amazon_url = details_page(response.url_details_page)
+        self.image_url = response.image_large.url
+      else
+        self.kindle_url = details_page(response.url_details_page)
+      end
+    end
+    self
+  end
+
   private
-  def self.category_name(response)
+  def category_name(response)
     candidate1 = response.browse_nodes[0].ancestors[0].name
     candidate2 = response.browse_nodes[0].name
     candidate3 = "なし"
@@ -57,7 +65,7 @@ class Book < ApplicationRecord
     candidate3
   end
 
-  def self.details_page(url)
+  def details_page(url)
     URI.decode(url)
   end
 end
