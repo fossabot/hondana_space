@@ -14,21 +14,21 @@ class BooksController < ApplicationController
   def create
     @book = Book.find_or_create_by_isbn(book_params[:isbn])
     if @book.save!
-      redirect_to book_path(@book.isbn), notice: "Book was successfully created."
+      redirect_to book_path(@book.isbn), success: "Book was successfully created."
     end
   rescue => e
     logger.error(e)
-    render "books/new", notice: "We had trouble registering the book. Please try again later."
+    render "books/new", danger: "We had trouble registering the book. Please try again later."
   end
 
   def update
     @book = Book.update_by_isbn(params[:isbn])
     if @book.save!
-      redirect_to book_path(@book.isbn), notice: "Book was successfully updated."
+      redirect_to book_path(@book.isbn), success: "Book was successfully updated."
     end
   rescue => e
     logger.error(e)
-    redirect_to book_path(params[:isbn]), notice: "We had trouble updating the book. Please try again later."
+    redirect_to book_path(params[:isbn]), danger: "We had trouble updating the book. Please try again later."
   end
 
   private

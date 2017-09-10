@@ -10,5 +10,9 @@ html
   .navbar.navbar-dark.bg-dark
     .container.d-flex.justify-content-between
       a.navbar-brand href="#" hondana.space
+  - if flash.any?
+    - flash.each do |key, value|
+      div class="alert alert-#{key}"
+        = value
   = yield
   = javascript_include_tag "application"
