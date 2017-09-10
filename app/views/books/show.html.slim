@@ -26,6 +26,7 @@
               = fa_icon "amazon"
               | Amazon
           .col-6
-            a.btn.btn-secondary.btn-lg.btn-block href="#{@book.kindle_url}" target="_blank"
+            - disabled = "disabled" unless @book.kindle_url
+            a class="btn btn-secondary btn-lg btn-block #{disabled}" href="#{@book.kindle_url}" target="_blank"
               = fa_icon "amazon"
               | Kindle
