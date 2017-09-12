@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
 
   def index
+    @books = Book.all.limit(30).order(created_at: :desc)
   end
 
   def show

@@ -1,0 +1,15 @@
+<% @books.each_with_index do |book, i| %>
+  <% if i == 0 %>
+    <div class="row book-row">
+  <% elsif i % 6 == 0 %>
+    </div>
+    <div class="row book-row">
+  <% elsif i == @books.size %>
+    </div>
+  <% end %>
+      <div class="col-6 col-lg-2">
+        <a href="/books/<%= book.isbn %>">
+          <img class="book-thumbnail" src="<%= book.image_url %>" alt="">
+        </a>
+      </div>
+<% end %>

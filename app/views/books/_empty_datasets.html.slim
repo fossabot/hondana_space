@@ -1,0 +1,16 @@
+.jumbotron.text-center
+  h1 Welcome to hondana space!
+  p.lead
+    | Let's start organising your hondana space. To begin, please add your books.
+    br
+    | You can either add a book by entering ISBN or just import order history report from Amazon.
+  .row
+    .col-3
+    .col-3
+      = link_to new_book_path, class: "btn btn-outline-dark btn-lg btn-block"
+        = fa_icon "book 5x"
+        p Add book
+    .col-3
+      a.btn.btn-outline-dark.btn-lg.btn-block
+        = fa_icon "archive 5x"
+        p Import books
