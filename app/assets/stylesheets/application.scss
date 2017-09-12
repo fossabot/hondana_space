@@ -15,6 +15,15 @@ a {
     padding-right: 5px;
   }
 }
+.navbar {
+  .container {
+    justify-content: normal !important;
+  }
+  .dropdown-menu-right {
+      left: auto;
+      right: 0;
+  }
+}
 .book-thumbnail {
   max-width: 100%;
   height: auto;

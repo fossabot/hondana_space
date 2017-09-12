@@ -1,8 +1,4 @@
 class Books::SearchController < ApplicationController
-  def new
-    @book = Search::Book.new
-  end
-
   def create
     @book = Search::Book.new(search_params)
     @books = @book.matches
