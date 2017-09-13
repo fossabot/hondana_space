@@ -1,6 +1,6 @@
 .jumbotron
   .container
-    - if @books
+    - if @books.present?
       h2.text-center
         u Recently Added
       = render "collection"
