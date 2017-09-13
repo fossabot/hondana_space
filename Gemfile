@@ -9,12 +9,13 @@ gem "rails"
 
 gem "dotenv-rails"
 gem "isbn"
+gem "mini_racer"
 gem "mysql2"
 gem "puma"
 gem "rapa"
 
 # front-end
-gem 'simple_form'
+gem "simple_form"
 gem "bootstrap", "~> 4.0.0.beta"
 gem "font-awesome-rails"
 gem "jquery-rails"
